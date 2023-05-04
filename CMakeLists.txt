@@ -7,7 +7,8 @@ project(app_config
 
 add_subdirectory(lib)
 
-set(public_headers "*.h")
-set(sources "*.cpp")
+file(GLOB
+	public_headers "*.h"
+	sources "*.cpp")
 
 add_library(${PROJECT_NAME}_lib ${sources} ${public_headers})
