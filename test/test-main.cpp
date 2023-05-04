@@ -11,7 +11,7 @@ TEST_CASE( "Test functions for get in config define info.", "[get-functions]" ){
 																									 "port=5432 "
 																									 "dbname=dbname "
 																									 "user=username "
-																									 "password=secret "
+																									 "password=secret"
 					);
 	}
 }

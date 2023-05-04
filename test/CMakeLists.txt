@@ -4,13 +4,18 @@ find_package(Catch2 3 REQUIRED)
 # target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
 
 file(GLOB
-	lib_source "../*.cpp")
+	app_config "../*.cpp"
+	app_exceptin "../lib/app_exception/*.cpp")
 
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
-add_library(${PROJECT_NAME}_lib STATIC 
-	${lib_source})
+add_library(app_config_lib STATIC 
+	${app_config}
+	${app_exception})
 
 # These tests need their own main
-add_executable(tests test-main.cpp ${lib_source})
+add_executable(tests test-main.cpp
+	${app_config}
+	${app_exception})
+
 target_link_libraries(tests PRIVATE Catch2::Catch2)

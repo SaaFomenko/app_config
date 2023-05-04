@@ -16,17 +16,20 @@ std::string app_config::get_connect(const std::string& path_str)
 		throw AppException(err_file_msg + path_str);
 	}
 
-	std::string word = "";
+	int i = 0;
 
 	while (!fin.eof())
 	{
+		std::string word = "";
 		fin >> word;
-		if (!fin.eof())
+
+		if (i != 0 && !fin.eof())
 		{
-			word += " ";
+			word = " " + word;
 		}
 
 		connect_str += word;
+		++i;
 	}
 
 	return connect_str;
